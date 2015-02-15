@@ -55,6 +55,8 @@ grails.project.dependency.resolution = {
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
         compile "org.springframework.social:spring-social-twitter:1.1.0.RELEASE"
         compile 'org.apache.httpcomponents:httpclient:4.3.6'
+        compile 'com.google.guava:guava:18.0'
+
     }
 
     plugins {
