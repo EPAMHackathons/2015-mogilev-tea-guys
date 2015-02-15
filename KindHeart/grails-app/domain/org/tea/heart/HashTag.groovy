@@ -4,9 +4,8 @@ class HashTag {
 	
 	static mapWith = "neo4j"
 
-	//long id
-	def name
-	
+	String name
+
     static constraints = {
     }
 	
