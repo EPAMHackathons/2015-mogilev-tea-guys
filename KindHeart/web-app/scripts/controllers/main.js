@@ -8,14 +8,47 @@
  * Controller of the testApp
  */
 angular.module('testApp')
-  .controller('MainCtrl', ['$scope', '$controller', 'dataService', function ($scope,  $controller, dataService) {
+  .controller('MainCtrl', ['$scope', '$rootScope', '$controller', 'dataService', function ($scope, $rootScope, $controller, dataService) {
 
   	$.extend(this, $controller('BaseCtrl', {$scope: $scope}));
 
-  	dataService.getAll(function(data) {
-  		$scope.posts = data.model;
-  	});
+  	$rootScope.$on('tag-changed', function(event,args) {
+  		for(var i=0, max=$scope.data.tags.length; i<max; i++) {
+  			var tag = $scope.data.tags[i];
+  			if (tag.name === args.name) {
+  				tag.selected = args.selected;
+  			}
+  		}
+  		updatePosts();
+	    event.preventDefault();
+	});
 
+
+  	function getSelectedTags() {
+  		var selected = [];
+  		for(var i=0, max=$scope.data.tags.length; i<max; i++) {
+  			var tag = $scope.data.tags[i];
+  			if (tag.selected === true) {
+  				selected.push(tag.name);
+  			}
+  		}
+  		return selected;
+  	}
+
+  	function updatePosts() {
+  		var selectedTags = getSelectedTags();
+  		if (selectedTags.length > 0) {
+  			dataService.getByTags(selectedTags, function(data) {
+		  		$scope.posts = data.model;
+		  	});
+  		} else {
+	  		dataService.getAll(function(data) {
+		  		$scope.posts = data.model;
+		  	});
+	  	}
+  	}
+
+  	updatePosts();
 /*
 	$scope.posts = [
 		{
