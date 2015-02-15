@@ -18,5 +18,8 @@ angular.module('testApp')
         names.push(tags[i].name);
        }
        $http.post('records/tags', {'names':names}).success(callback);
+    };
+    this.getTags = function(callback) {
+       $http.get('records/toptags').success(callback);
     }
   }]);
