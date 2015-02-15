@@ -19,7 +19,9 @@ class Record {
 
 //    static mapWith = "neo4j"
     static hasMany = [hashTags: HashTag]
-
+    static mapping = {
+        hashTags cascade: 'all-delete-orphan'
+    }
     static constraints = {
         source nullable: true
         userName nullable: true
