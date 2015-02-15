@@ -1,31 +1,35 @@
 package org.tea.heart
 
 class Record {
-	
-	Date createdAt
 
-	String message
+    Date createdAt
 
-	String userPhotoUrl
+    String message
 
-	String userProfileUrl
+    String userPhotoUrl
 
-	String userName
+    String userProfileUrl
 
-	String source
+    String userName
 
-	Long sinceId // meta
-	
-static mapWith = "neo4j"
-	static hasMany = [hashTags: HashTag]
+    String source
+
+    Long sinceId // meta
+
+    static mapping = {
+        table "RECORD"
+    }
+
+//    static mapWith = "neo4j"
+    static hasMany = [hashTags: HashTag]
 
     static constraints = {
-		source nullable: true
-		userName nullable: true
-		userProfileUrl nullable: true
-		userPhotoUrl nullable: true
-		message nullable: true
-		createdAt nullable: true
+        source nullable: true
+        userName nullable: true
+        userProfileUrl nullable: true
+        userPhotoUrl nullable: true
+        message nullable: true
+        createdAt nullable: true
     }
-	
+
 }
