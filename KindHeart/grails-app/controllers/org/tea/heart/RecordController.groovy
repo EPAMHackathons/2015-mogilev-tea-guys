@@ -32,6 +32,13 @@ class RecordController {
 
         render searchResults as JSON;
     }
+
+    def getStoredRecords() {
+
+        def result = [success:true, model: Record.getAll()]
+
+        render result as JSON
+    }
     def getPredifineModel() {
         def  model = [
                 createdAt: "2015-02-15T07:47:18Z",
