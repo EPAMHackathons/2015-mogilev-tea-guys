@@ -8,6 +8,11 @@
  * Service in the testApp.
  */
 angular.module('testApp')
-  .service('dataService', function () {
-    // AngularJS will instantiate a singleton by calling "new" on this function
-  });
+  .service('dataService', ['$http', function ($http) {
+  	this.getAll = function(callback) {
+       $http.get('records').success(callback);
+    };
+    this.getByTags = function(callback) {
+       $http.get('tags').success(callback);
+    }
+  }]);
