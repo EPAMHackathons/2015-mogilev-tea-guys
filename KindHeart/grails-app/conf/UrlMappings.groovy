@@ -7,6 +7,8 @@ class UrlMappings {
             }
         }
 
+        "/records"(controller: "record", action: "getAll")
+
         "/"(view:"/index")
         "500"(view:'/error')
 	}
