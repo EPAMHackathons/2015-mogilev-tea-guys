@@ -87,4 +87,8 @@ class RecordController {
 
         render result
     }
+
+    def getTopTags() {
+
+    }
 }

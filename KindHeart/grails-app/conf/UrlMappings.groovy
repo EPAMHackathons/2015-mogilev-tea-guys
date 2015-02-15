@@ -11,6 +11,7 @@ class UrlMappings {
         "/model"(controller: "record", action: "getPredifineModel")
         "/records/tags"(controller: "record", action: "getByTagIds")
         "/records/linked"(controller: "record", action: "getLinkedRecords")
+        "/records/toptags"(controller: "record", action: "getTopTags")
 
         "/"(view:"/index")
         "500"(view:'/error')
