@@ -115,3 +115,9 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+twitter.consumerKey='0PfGrbbXafiTbReVgYhu5mpdq'
+twitter.consumerSecret='SaGpnCwunTUKMyU1X2Eq44DBQ4GmgxnJuHhVVA0k9PwMQEhrOt'
+twitter.accessToken='1134371804-FjV93y57CFwnsVVqb6GftA4NxJIHrTVviLQ30R7'
+twitter.accessTokenSecret='Qp6gegpf2AQujXkmXrTlGUeM1NiLDv0ZC4j0jtoHZznWU'

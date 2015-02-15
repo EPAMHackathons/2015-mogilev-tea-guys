@@ -51,11 +51,14 @@ grails.project.dependency.resolution = {
         // runtime 'mysql:mysql-connector-java:5.1.29'
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
+        compile "org.springframework.social:spring-social-twitter:1.1.0.RELEASE"
     }
 
     plugins {
         // plugins for the build system only
         build ":tomcat:7.0.55"
+        compile ":spring-websocket:1.2.0"
+        compile ":quartz:1.0.2"
 
         // plugins for the compile step
         compile ":scaffolding:2.1.2"
@@ -74,3 +77,7 @@ grails.project.dependency.resolution = {
         //compile ":handlebars-asset-pipeline:1.3.0.3"
     }
 }
+
+
+grails.tomcat.nio = true
+grails.tomcat.scan.enabled = true
