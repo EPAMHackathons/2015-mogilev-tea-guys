@@ -2,7 +2,9 @@ package org.tea.heart
 
 class Record {
 	
-	long id
+	static mapWith = "neo4j"
+	
+	//long id
 	
 	def origialTwitt
 	
