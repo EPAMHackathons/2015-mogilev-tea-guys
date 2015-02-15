@@ -5,13 +5,29 @@ dataSource {
     username = "sa"
     password = ""
 }
-hibernate {
-    cache.use_second_level_cache = true
-    cache.use_query_cache = false
-//    cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory' // Hibernate 3
-    cache.region.factory_class = 'org.hibernate.cache.ehcache.EhCacheRegionFactory' // Hibernate 4
-    singleSession = true // configure OSIV singleSession mode
-    flush.mode = 'manual' // OSIV session flush mode outside of transactional context
+//hibernate {
+//    cache.use_second_level_cache = true
+//    cache.use_query_cache = false
+////    cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory' // Hibernate 3
+//    cache.region.factory_class = 'org.hibernate.cache.ehcache.EhCacheRegionFactory' // Hibernate 4
+//    singleSession = true // configure OSIV singleSession mode
+//    flush.mode = 'manual' // OSIV session flush mode outside of transactional context
+//}
+
+//grails {
+//	neo4j {
+//		type = "rest"
+//		location = "http://localhost:7474/db/data/"
+//	}
+//}
+
+neo4j {
+	// url = "jdbc:neo4j:instance:dummy"
+	// type = "rest"
+	type="rest"
+	location = "http://localhost:7474/db/data/"
+	//url = "jdbc:neo4j://localhost:7474"
+	// url = 'jdbc:neo4j:instance://localhost:7474'
 }
 
 // environment specific settings
