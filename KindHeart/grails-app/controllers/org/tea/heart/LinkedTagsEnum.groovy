@@ -12,6 +12,9 @@ enum LinkedTagsEnum {
     String linkedName
 
     public static LinkedTagsEnum findByName(String name) {
-        LinkedTagsEnum.values().find{it.name = name}
+
+        LinkedTagsEnum.values().find{
+            it.name == name
+        }
     }
 }

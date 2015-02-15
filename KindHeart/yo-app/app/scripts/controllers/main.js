@@ -13,7 +13,7 @@ angular.module('testApp')
   	$.extend(this, $controller('BaseCtrl', {$scope: $scope}));
 
   	dataService.getAll(function(data) {
-  		$scope.posts = data;
+  		$scope.posts = data.model;
   	});
 
 /*

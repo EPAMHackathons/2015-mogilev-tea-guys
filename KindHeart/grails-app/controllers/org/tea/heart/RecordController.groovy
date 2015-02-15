@@ -56,7 +56,7 @@ class RecordController {
         def allParams = params + request.JSON
 
         log.debug("allParams" + allParams)
-        def results = recordProcessorService.searchByTags(allParams.ids)
+        def results = recordProcessorService.searchByTags(allParams.names)
 
         render results as JSON;
     }
@@ -73,7 +73,7 @@ class RecordController {
 
         def result = recordProcessorService.getLinkedRecords(mainTag, associatedTags)
 
-        render result
+        render result as JSON
     }
 
     def getTopTags() {

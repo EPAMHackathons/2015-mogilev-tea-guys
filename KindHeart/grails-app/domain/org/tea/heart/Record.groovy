@@ -16,11 +16,15 @@ class Record {
 
     Long sinceId // meta
 
+    String recordUrl
 
 //    static mapWith = "neo4j"
     static hasMany = [hashTags: HashTag]
-
+    static mapping = {
+        hashTags cascade: 'all-delete-orphan'
+    }
     static constraints = {
+        recordUrl nullable: true
         source nullable: true
         userName nullable: true
         userProfileUrl nullable: true
