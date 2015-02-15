@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="testApp">
+  <body ng-app="testApp" ng-controller="BaseCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -39,7 +39,6 @@
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
             <ul class="nav navbar-nav">
               <li class="active"><a href="#/">live</a></li>
               <li><a ng-href="#/about">About</a></li>
@@ -48,10 +47,19 @@
           </div>
         </div>
       </div>
+
+      <div class="navbar tag-cloud">
+        <div class="container">
+          <div ng-repeat='tag in tags'>
+           <tag model="tag"/>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <div id="content" class="container">
-    <div ng-view=""></div>
+    <div class="container">
+      <div id="content" ng-view=""></div>
     </div>
 
     <div class="footer">
