@@ -55,7 +55,7 @@ grails.project.dependency.resolution = {
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
         compile "org.springframework.social:spring-social-twitter:1.1.0.RELEASE"
-		compile("org.neo4j:neo4j-community:2.1.7")
+        compile 'org.apache.httpcomponents:httpclient:4.3.6'
     }
 
     plugins {
@@ -64,7 +64,7 @@ grails.project.dependency.resolution = {
         compile ":spring-websocket:1.2.0"
         compile ":quartz:1.0.2"
 		
-		//compile ":neo4j:2.0.0-M02"
+		compile ":neo4j:2.0.0-M02"
 
         // plugins for the compile step
         compile ":scaffolding:2.1.2"

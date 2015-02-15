@@ -24,7 +24,7 @@ class RecordController {
                 hashTagEntity.getHashTags().each { hashTag ->
                     HashTag newTag = new HashTag()
                     newTag.name = hashTag.text
-//                    newTag.save()
+                    newTag.save()
               }
             }
         }
