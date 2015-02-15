@@ -6,6 +6,8 @@ class HashTag {
 
 	String name
 
+    static hasMany = [records : Record]
+    static belongsTo = Record
     static constraints = {
     }
 	

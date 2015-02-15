@@ -59,11 +59,32 @@ class RecordController {
         results.add(answer)
         answer =  [success : false, model: model, message : 'test message']
         results.add(answer)
+
         render results as JSON;
     }
 
-    def getByTagIds(ids){
-        def results = recordProcessorService.searchByTags(ids)
+    def getByTagIds(){
+
+        def allParams = params + request.JSON
+
+        log.debug("allParams" + allParams)
+        def results = recordProcessorService.searchByTags(allParams.ids)
+
         render results as JSON;
+    }
+
+    def getLinkedRecords() {
+
+        def allParams = params + request.JSON
+
+        assert allParams.mainTag
+        assert allParams.associatedTags
+
+        def mainTag = allParams.mainTag as String
+        def associatedTags = allParams.associatedTags as List
+
+        def result = recordProcessorService.getLinkedRecords(mainTag, associatedTags)
+
+        render result
     }
 }

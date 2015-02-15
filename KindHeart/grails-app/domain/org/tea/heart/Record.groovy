@@ -16,9 +16,6 @@ class Record {
 
     Long sinceId // meta
 
-    static mapping = {
-        table "RECORD"
-    }
 
 //    static mapWith = "neo4j"
     static hasMany = [hashTags: HashTag]
