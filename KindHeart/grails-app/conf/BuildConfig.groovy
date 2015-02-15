@@ -27,6 +27,7 @@ grails.project.dependency.resolution = {
     inherits("global") {
         // specify dependency exclusions here; for example, uncomment this to disable ehcache:
         // excludes 'ehcache'
+        excludes 'xml-apis', 'netty', 'stax-api', 'slf4j-jdk14','log4j-over-slf4j', 'logback-classic'
     }
     log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
@@ -63,7 +64,7 @@ grails.project.dependency.resolution = {
         compile ":spring-websocket:1.2.0"
         compile ":quartz:1.0.2"
 		
-		compile ":neo4j:2.0.0-M02"
+		//compile ":neo4j:2.0.0-M02"
 
         // plugins for the compile step
         compile ":scaffolding:2.1.2"

@@ -14,21 +14,21 @@ dataSource {
 //    flush.mode = 'manual' // OSIV session flush mode outside of transactional context
 //}
 
-//grails {
-//	neo4j {
-//		type = "rest"
-//		location = "http://localhost:7474/db/data/"
-//	}
-//}
-
-neo4j {
-	// url = "jdbc:neo4j:instance:dummy"
-	// type = "rest"
-	type="rest"
-	location = "http://localhost:7474/db/data/"
-	//url = "jdbc:neo4j://localhost:7474"
-	// url = 'jdbc:neo4j:instance://localhost:7474'
+grails {
+	neo4j {
+		type = "rest"
+		location = "http://localhost:7474/"
+	}
 }
+
+//neo4j {
+//	// url = "jdbc:neo4j:instance:dummy"
+//	// type = "rest"
+//	type="rest"
+//	location = "http://localhost:7474/db/data/"
+//	//url = "jdbc:neo4j://localhost:7474"
+//	// url = 'jdbc:neo4j:instance://localhost:7474'
+//}
 
 // environment specific settings
 environments {

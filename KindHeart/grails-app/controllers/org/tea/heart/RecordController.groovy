@@ -18,6 +18,19 @@ class RecordController {
 
         def searchResults = twitter.searchOperations().search(searchParameters)
 
+        searchResults.tweets.each { it ->
+
+            it.getEntities().each { hashTagEntity ->
+
+                hashTagEntity.hashTags.each { hashTag ->
+                    HashTag newTag = new HashTag()
+                    newTag.name = hashTag.text
+
+//                    newTag.save()
+//                }
+            }
+        }
+
         render searchResults as JSON;
     }
 }
