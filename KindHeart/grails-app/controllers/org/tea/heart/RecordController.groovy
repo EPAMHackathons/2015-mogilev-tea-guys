@@ -1,7 +1,7 @@
 package org.tea.heart
 
 import grails.converters.JSON
-import org.springframework.social.twitter.api.GeoCode
+//import org.springframework.social.twitter.api.GeoCode
 import org.springframework.social.twitter.api.SearchParameters
 import org.springframework.social.twitter.api.Twitter
 
@@ -21,17 +21,17 @@ class RecordController {
 
             it.getEntities().each { hashTagEntity ->
 
-                hashTagEntity.hashTags.each { hashTag ->
+                hashTagEntity.getHashTags().each { hashTag ->
                     HashTag newTag = new HashTag()
                     newTag.name = hashTag.text
-
 //                    newTag.save()
-//                }
+              }
             }
         }
 
         render searchResults as JSON;
     }
+
     def getPredifineModel() {
         def  model = [
                 createdAt: "2015-02-15T07:47:18Z",
