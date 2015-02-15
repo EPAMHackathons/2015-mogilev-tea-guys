@@ -7,13 +7,13 @@ dataSource {
     // uncomment for embedded usage
     //url = "jdbc:neo4j:instance:test"
     // use remote database
-    url = "jdbc:neo4j://localhost:7474/"
+    url = "jdbc:neo4j://neo4j35247-tea-guyes-neo4j.jelastic.elastx.net"
     // disabling autoCommit is crucial!
     properties = [
             defaultAutoCommit: false
     ]
-    // username = "sa"
-    // password = ""
+    username = "admin"
+    password = "O311gvLQS4"
 }
 //hibernate {
 //    cache.use_second_level_cache = true
@@ -27,7 +27,7 @@ dataSource {
 grails {
 	neo4j {
 		type = "rest"
-		location = "http://localhost:7474/db/data/"
+		location = "http://neo4j35247-tea-guyes-neo4j.jelastic.elastx.net/db/data/"
 	}
 }
 
