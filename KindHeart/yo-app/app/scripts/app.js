@@ -30,6 +30,7 @@ angular
 angular.module('testApp')
   .controller('BaseCtrl', ['$scope', 'dataService', function ($scope, dataService) {
     $scope.data = {};
+    $scope.data.tags = [];
 
     dataService.getTags(function(result) {
         $scope.data.tags = result;

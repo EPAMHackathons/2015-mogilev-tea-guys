@@ -39,7 +39,7 @@ angular.module('testApp')
   		var selectedTags = getSelectedTags();
   		if (selectedTags.length > 0) {
   			dataService.getByTags(selectedTags, function(data) {
-		  		$scope.posts = data.model;
+		  		$scope.posts = data;
 		  	});
   		} else {
 	  		dataService.getAll(function(data) {
