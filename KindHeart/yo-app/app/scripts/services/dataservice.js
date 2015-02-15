@@ -12,7 +12,10 @@ angular.module('testApp')
   	this.getAll = function(callback) {
        $http.get('records').success(callback);
     };
-    this.getByTags = function(callback) {
-       $http.get('tags').success(callback);
+    this.getByTags = function(tags, callback) {
+       $http.post('records/tags', {'names':tags}).success(callback);
+    };
+    this.getTags = function(callback) {
+       $http.get('records/toptags').success(callback);
     }
   }]);

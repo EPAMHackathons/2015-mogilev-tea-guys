@@ -36,16 +36,30 @@ body {
   margin-bottom: 0;
 }
 
+
+/*
+ * Tags cloud
+ */
 .header .navbar.tag-cloud {
   background-color: #4caf50;
   color: #fff;
   min-height: 0;
+  padding: 5px;
 }
 
-.tag-cloud .container div {
-  display: inline-block;
+.tag-cloud .container > div {
   padding: 2px;
+  display: inline-block;
+  cursor: pointer;
 }
+
+.tag {
+  border-radius: 4px;
+  padding: 2px 4px;
+ }
+.tag.selected {
+  background-color: #8bc34a;
+ }
 
 /* ================= Content ==============*/
 
@@ -57,14 +71,6 @@ body {
   border-radius: 2px;
   border: 0px none;
 }
-
-/*
- * Tags cloud
- */
- .tag-cloud {
-   background-color: #4caf50;
-   padding: 5px;
- }
 
 /*
  * Tiles block
@@ -81,7 +87,6 @@ body {
   margin: 8px;
 
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.12), 0px 1px 6px rgba(0, 0, 0, 0.12);
-
 }
 
 .tile:hover {
@@ -104,11 +109,6 @@ body {
 .tile .content img.usr {
   float:left;
   margin: 5px;
-}
-
-.tile img.social {
-    float : right;
-    height: 20px
 }
 
 /* Custom page footer */

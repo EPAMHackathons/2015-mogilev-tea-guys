@@ -11,8 +11,7 @@ angular.module('testApp')
     return {
       template: '<div class="tile">' + 
       			'<div class="head">' + 
-                '<a href="{{data.userProfileUrl}}">{{data.userName}}</a>' +
-                '<img class="social" ng-src="images/{{data.source}}.png"/></div>'+
+              '<a href="{{data.userProfileUrl}}" target="_blank">{{data.userName}}</a></div>' +
             '<div class="content">' + 
               '<img class="usr img-circle" ng-src="{{data.userPhotoUrl}}"/>' +
       				'<p class="msg">{{data.message}}</p>' +
