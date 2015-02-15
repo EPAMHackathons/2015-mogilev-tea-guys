@@ -16,6 +16,7 @@ class Record {
 
 	Long sinceId // meta
 	
+static mapWith = "neo4j"
 	static hasMany = [hashTags: HashTag]
 
     static constraints = {
