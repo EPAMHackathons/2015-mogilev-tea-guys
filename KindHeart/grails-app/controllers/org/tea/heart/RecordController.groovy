@@ -1,7 +1,6 @@
 package org.tea.heart
 
 import grails.converters.JSON
-import org.springframework.social.twitter.api.GeoCode
 import org.springframework.social.twitter.api.SearchParameters
 import org.springframework.social.twitter.api.Twitter
 
@@ -25,8 +24,8 @@ class RecordController {
                     HashTag newTag = new HashTag()
                     newTag.name = hashTag.text
 
-//                    newTag.save()
-//                }
+                    newTag.save()
+                }
             }
         }
 
@@ -39,6 +38,7 @@ class RecordController {
 
         render result as JSON
     }
+
     def getPredifineModel() {
         def  model = [
                 createdAt: "2015-02-15T07:47:18Z",
@@ -59,4 +59,6 @@ class RecordController {
         results.add(answer)
         render results as JSON;
     }
+
+
 }
