@@ -11,8 +11,9 @@ class RecordController {
 
     def getAll() {
 
-        SearchParameters searchParameters = new SearchParameters("#lost-pets")
-        searchParameters.geoCode(GeoCode)
+        SearchParameters searchParameters = new SearchParameters("#ДОБРОЕСЕРДЦЕ")
+//        searchParameters
+//        searchParameters.geoCode(GeoCode)
 //        searchParameters.
 
         def searchResults = twitter.searchOperations().search(searchParameters)
