@@ -7,10 +7,12 @@ import org.springframework.social.twitter.api.Twitter
 class RecordController {
 
     Twitter twitter
+    RecordProcessorService recordProcessorService
 
     def getAll() {
 
-        SearchParameters searchParameters = new SearchParameters("#ДобраеСэрца")
+        SearchParameters searchParameters = new SearchParameters("#ДОБРАЕСЭРЦА")
+
         //searchParameters.geoCode(GeoCode)
 //        searchParameters.
 
@@ -24,7 +26,7 @@ class RecordController {
                     HashTag newTag = new HashTag()
                     newTag.name = hashTag.text
 
-                    newTag.save()
+//                    newTag.save()
                 }
             }
         }
@@ -46,7 +48,7 @@ class RecordController {
                 photoUrl:'',
                 hashTags: [ text:'ДобраеСэрца',
                             text:'Сабачка'],
-                location : 'Могиле',
+                location : 'Магилеу',
                 user:[  name: 'asd',
                         profileUrl:'http://twitter.com/AnimalAngel47',
                         profile_image_url: 'https://pbs.twimg.com/profile_images/560601273519865856/zVW7NNJX_normal.jpeg'],
@@ -60,5 +62,8 @@ class RecordController {
         render results as JSON;
     }
 
-
+    def getByTagIds(ids){
+        def results = recordProcessorService.searchByTags(ids)
+        render results as JSON;
+    }
 }

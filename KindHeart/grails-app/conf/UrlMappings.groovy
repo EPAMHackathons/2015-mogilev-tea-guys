@@ -9,6 +9,7 @@ class UrlMappings {
 
         "/records"(controller: "record", action: "getAll")
         "/model"(controller: "record", action: "getPredifineModel")
+        "/getbytagids"(controller: "record", action: "getByTagIds")
 
         "/"(view:"/index")
         "500"(view:'/error')
