@@ -11,7 +11,7 @@
   "latedef": true,
   "newcap": true,
   "noarg": true,
-  "quotmark": "single",
+  "quotmark": true,
   "undef": true,
   "unused": true,
   "strict": true,
@@ -19,5 +19,8 @@
   "smarttabs": true,
   "globals": {
     "angular": false
-  }
+  },
+  "undef": true,
+  "unused": false,
+  "predef": [ "$", "$scope", "$http" ]
 }
