@@ -5,6 +5,8 @@ import org.springframework.social.twitter.api.HashTagEntity
 import org.springframework.social.twitter.api.SearchResults
 import org.springframework.social.twitter.api.Tweet
 
+import static org.tea.heart.Record.*
+
 @Transactional
 class RecordProcessorService {
 
@@ -28,11 +30,24 @@ class RecordProcessorService {
             record.save()
         }
     }
-    def List<Record> searchByTags(List<Long> ids){
-        List<HashTag> tags = []
-        for (id in ids){
-         tags.add(HashTag.load(id))
+
+    def List<Record> searchByTags(def ids){
+
+        def result = Record.createCriteria().list() {
+            hashTags {
+                'in' ("id", ids.collect{it as Long}.toList())
+            }
         }
-        return Record.findAllByHashTags(tags)
+
+        return result
+    }
+
+    def List<Record> getLinkedRecords(String mainTag, List associatedRecords) {
+
+        def result = []
+
+//        HashTag mainTag = HashTag.findByName()
+
+        return result
     }
 }

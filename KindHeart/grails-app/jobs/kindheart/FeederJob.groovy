@@ -13,7 +13,7 @@ class FeederJob {
     RecordProcessorService recordProcessorService
 
     static triggers = {
-      simple repeatInterval: 10000l // execute job once in 10 seconds
+      simple repeatInterval: 120000l // execute job once in 10 seconds
     }
 
     def execute() {
