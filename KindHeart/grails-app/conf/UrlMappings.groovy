@@ -13,6 +13,7 @@ class UrlMappings {
         "/records/linked"(controller: "record", action: "getLinkedRecords")
         "/records/toptags"(controller: "record", action: "getTopTags")
         "/records/all"(controller: "record", action: "getAll")
+        "/records/sendtwitt"(controller: "record", action: "sendTwittMessage")
 
         "/"(view:"/index")
         "500"(view:'/error')

@@ -19,7 +19,7 @@ class HashTag implements Comparable {
     }
 
     int compareTo(obj) {
-        name.compareToIgnoreCase(obj.name)
+        name.compareTo(obj.name)
     }
 	
 }
