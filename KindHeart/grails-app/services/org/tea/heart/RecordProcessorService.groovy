@@ -28,4 +28,11 @@ class RecordProcessorService {
             record.save()
         }
     }
+    def List<Record> searchByTags(List<Long> ids){
+        List<HashTag> tags = []
+        for (id in ids){
+         tags.add(HashTag.load(id))
+        }
+        return Record.findAllByHashTags(tags)
+    }
 }
