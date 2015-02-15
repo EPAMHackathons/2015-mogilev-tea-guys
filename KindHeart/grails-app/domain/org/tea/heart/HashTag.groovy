@@ -2,9 +2,8 @@ package org.tea.heart
 
 class HashTag {
 
-	long id
-	def name
-	
+	String name
+
     static constraints = {
     }
 	

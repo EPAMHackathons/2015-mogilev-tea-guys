@@ -19,4 +19,11 @@ class RecordController {
 
         render searchResults as JSON;
     }
+
+    def getStoredRecords() {
+
+        def result = [success:true, model: Record.getAll()]
+
+        render result as JSON
+    }
 }

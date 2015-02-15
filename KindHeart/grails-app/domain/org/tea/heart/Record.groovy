@@ -2,15 +2,29 @@ package org.tea.heart
 
 class Record {
 	
-	long id
-	
-	def origialTwitt
-	
-	def message
+	Date createdAt
+
+	String message
+
+	String userPhotoUrl
+
+	String userProfileUrl
+
+	String userName
+
+	String source
+
+	Long sinceId // meta
 	
 	static hasMany = [hashTags: HashTag]
 
     static constraints = {
+		source nullable: true
+		userName nullable: true
+		userProfileUrl nullable: true
+		userPhotoUrl nullable: true
+		message nullable: true
+		createdAt nullable: true
     }
 	
 }
