@@ -81,7 +81,13 @@ class RecordController {
         assert allParams.associatedTags
 
         def mainTag = allParams.mainTag as String
-        def associatedTags = allParams.associatedTags as List
+        def associatedTags = []
+        if (allParams.associatedTags instanceof String) {
+            associatedTags.add(allParams.associatedTags)
+        } else {
+            associatedTags = allParams.associatedTags
+        }
+        allParams.associatedTags as List
 
         def result = recordProcessorService.getLinkedRecords(mainTag, associatedTags)
 
