@@ -23,7 +23,9 @@ class BootStrap {
                     userName: it.userName,
                     sinceId: it.sinceId,
                     source: it.source,
-                    hashTags: it.hashTags
+                    hashTags: it.hashTags,
+                    recordPhotoUrl: it.recordPhotoUrl,
+                    mainTags: it.mainTags
             ]
         }
     }

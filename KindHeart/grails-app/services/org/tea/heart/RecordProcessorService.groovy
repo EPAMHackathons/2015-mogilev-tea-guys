@@ -21,15 +21,18 @@ class RecordProcessorService {
             record.userPhotoUrl = tweet.getUser().profileImageUrl
             record.userProfileUrl = tweet.getUser().profileUrl
             record.sinceId = searchResults.getSearchMetadata().maxId
+            if (tweet.hasMedia()) {
+                record.recordPhotoUrl = tweet.entities.media.get(0).mediaUrl
+            }
 
             tweet.getEntities().hashTags.each { HashTagEntity hashTagEntity ->
                 HashTag exist = HashTag.findByName(hashTagEntity.text)
                 if (exist) {
-                    exist.addToRecords(record)
+//                    exist.addToRecords(record)
                     record.addToHashTags(exist)
                 } else {
                     def newTag = new HashTag(name: hashTagEntity.text)
-                    newTag.addToRecords(record)
+//                    newTag.addToRecords(record)
                     record.addToHashTags(newTag)
                 }
             }
@@ -68,25 +71,40 @@ class RecordProcessorService {
 
         def parsed = records.collect {
             [
-                    id: it.id,
-                    createdAt: it.createdAt,
-             message: it.message,
-             userPhotoUrl: it.userPhotoUrl,
-             userProfileUrl: it.userProfileUrl,
-             userName: it.userName,
-             sinceId: it.sinceId,
-                    source: it.source,
-                    hashTags: it.hashTags
+                    id            : it.id,
+                    createdAt     : it.createdAt,
+                    message       : it.message,
+                    userPhotoUrl  : it.userPhotoUrl,
+                    userProfileUrl: it.userProfileUrl,
+                    userName      : it.userName,
+                    sinceId       : it.sinceId,
+                    source        : it.source,
+                    hashTags      : it.hashTags,
+                    recordPhotoUrl: it.recordPhotoUrl,
+                    mainTags: it.mainTags
             ]
         }
-//        Record.createCriteria().list() {
-//            hashTags {
-        log.debug("hashTaghashTagdd" + records)
-//                'in' ("id", ids.collect{it as Long}.toList())
-//            }
+
+//        associatedTags.each { tag ->
+//
 //        }
         log.debug "recordsrecords " + (parsed as JSON)
 
-        return parsed
+        def sortedRecords = []
+        parsed.each { parsedEntry ->
+//            parsedEntry.hashTags.values()
+            Integer matchesNumber = 0
+            parsedEntry.hashTags.each {
+                log.info "itititit " + it.name + " containsed " + associatedTags
+                if (associatedTags.contains(it.name)) {
+                    matchesNumber++
+                }
+            }
+
+            sortedRecords.push(parsedEntry + [matchesNumber: matchesNumber])
+        }
+
+log.info "sortedRecords.sort { a,b -> a.matchesNumber <=> b.matchesNumber } " + sortedRecords.sort { a,b -> a.matchesNumber <=> b.matchesNumber }.collect{it.matchesNumber}
+        return sortedRecords.sort { a,b -> b.matchesNumber <=> a.matchesNumber }
     }
 }

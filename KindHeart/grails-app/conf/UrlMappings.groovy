@@ -12,6 +12,7 @@ class UrlMappings {
         "/records/tags"(controller: "record", action: "getByTagIds")
         "/records/linked"(controller: "record", action: "getLinkedRecords")
         "/records/toptags"(controller: "record", action: "getTopTags")
+        "/records/all"(controller: "record", action: "getAll")
         "/records/sendtwitt"(controller: "record", action: "sendTwittMessage")
 
         "/"(view:"/index")
