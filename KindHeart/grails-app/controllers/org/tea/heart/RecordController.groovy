@@ -79,4 +79,12 @@ class RecordController {
     def getTopTags() {
         render hashTagsService.getTopTags() as JSON
     }
+
+    def sendTwittMessage() {
+
+        def allParams = params + request.JSON
+
+        //twitter.
+
+    }
 }
